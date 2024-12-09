@@ -41,4 +41,11 @@ class FirstScreenController {
     );
     await getTodo();
   }
+  static Future<void> updateTodo(int id, String newTask) async {
+    await database.rawUpdate(
+      'UPDATE Todo SET task = ? WHERE id = ?',
+      [newTask, id],
+    );
+    await getTodo();
+  }
 }
